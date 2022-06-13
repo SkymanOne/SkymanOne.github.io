@@ -302,6 +302,10 @@ impl Sandbox for Counter {
     }
 }
 ```
+Now:
+```bash
+cargo run
+```
 
 And the final result: 
 
