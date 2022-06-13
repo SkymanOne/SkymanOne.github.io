@@ -1,39 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
   {% include head.html %}
-
   <body>
-    <nav class="nav">
-      <div class="nav-container">
-        <a href="{{ site.baseurl }}/">
-          <h2 class="nav-title">{{ site.title }}</h2>
-        </a>
-        <ul class="nav-social-icons">
-          {% if site.social.email %}
-            <li><a target="_blank" href="mailto:{{ site.social.email }}"><i class="fas fa-envelope"></i></a></li>
-          {% endif %}
-          {% if site.social.github %}
-            <li><a target="_blank" href="{{ site.social.github }}"><i class="fab fa-github"></i></a></li>
-          {% endif %}
-          {% if site.social.twitter %}
-            <li><a target="_blank" href="{{ site.social.twitter }}"><i class="fab fa-twitter"></i></a></li>
-          {% endif %}
-          {% if site.social.linkedin %}
-            <li><a target="_blank" href="{{ site.social.linkedin }}"><i class="fab fa-linkedin-in"></i></a></li>
-          {% endif %}
-        </ul>
-      </div>
-    </nav>
+    {% include nav.html %}
 
-    <main>
+    <div id="main" role="main" class="container">
       {{ content }}
-    </main>
+    </div>
 
-    <footer>
-      <span>
-        &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time> {{ site.author.name }}. Powered by Jekyll.
-      </span>
-    </footer>
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          {% include footer.html %}
+        </footer>
+      </div>
+    </div>
+
+    {% include analytics.html %}
   </body>
 </html>
