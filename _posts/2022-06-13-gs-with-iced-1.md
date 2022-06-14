@@ -178,7 +178,11 @@ enum CounterMessage {
     Decrement
 }
 ```
-Now, we can alias our enum: `type Message = CounterMessage;`
+Now, we can alias our enum: 
+```diff
+- type Message = (); 
++ type Message = CounterMessage;
+```
 
 In the counter app, the initial state of our application is `counter = 0` so let's set it:
 
@@ -211,6 +215,8 @@ Looking good so far, isn't it?
 
 Let's now draw our view and display the counter.
 
+**In the `view(&self)` method:**
+
 We start with a label.
 ```rust
 let label = Text::new(format!("Count: {}", self.count));
@@ -237,7 +243,15 @@ You might get a compiler error at this point. Something like
 ```
 This is because we broke down our UI component into variable. Essentially, we are building a **composable** view.
 Essentially, when we push our buttons to the column, we are cloning (or copying if type can be stored on a stack) our messages to 
-a new element we produce. Hence, we need to derive `Clone` and `Copy` to do that: <br> `#[derive(Debug, Clone, Copy)]`.
+a new element we produce. Hence, we need to derive `Clone` and `Copy` to do that:  
+``` diff
+- #[derive(Debug)]
++ #[derive(Debug, Clone, Copy)]
+  enum CounterMessage {
+       Increment,
+       Decrement
+   }
+```
 
 Now, let's center elements using `Container` and return the final `Element`
 ```rust
@@ -311,7 +325,7 @@ And the final result:
 
 ![](/images/iced/counter.gif)
 
-Congratulations you created your first GUI app in rust and iced. 
+Congratulations you just created your first GUI app in rust and iced. 
 
 You now understand the basics of Elm architecture, difference between retained and immediate modes and basic of iced library.
 
