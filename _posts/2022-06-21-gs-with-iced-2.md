@@ -29,9 +29,9 @@ pub struct MainPage;
 
 Now, let's source the module in our `main.rs` file, so we can reuse our page struct there:
 ```diff
-use iced::Settings;
-use iced::pure::widget::{Button, Column, Container, Text};
-use iced::pure::Sandbox;
+  use iced::Settings;
+  use iced::pure::widget::{Button, Column, Container, Text};
+  use iced::pure::Sandbox;
 
 + mod main_page;
 ```
@@ -336,7 +336,7 @@ impl MainPage {
 
 ## Explanation
 
-If you haven't noticed, our `MainPage` does not implement any traits, it doesn't have methods that our `Counter` application has. It has absolutely arbitrary definition. We can event define it as enum and implement method on it.
+If you haven't noticed, our `MainPage` does not implement any traits, it doesn't have methods that our `Counter` application has. It has absolutely arbitrary definition. We can even define it as enum and implement method on it.
 
 This is the beauty of `iced` - **flexibility**. It doesn't impose any design patterns and architectural techniques on your application. 
 You can define your pages and widgets in septate files and modules or keep them in the single file (like [Game of Life example](https://github.com/iced-rs/iced/blob/master/examples/pure/game_of_life/src/main.rs)).
