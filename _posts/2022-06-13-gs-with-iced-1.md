@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GUI in Rust with iced: Getting Started"
+title: "GUI in Rust with iced #1: Getting Started"
 tags: [rust, iced, iced-tutorial]
 ---
 
