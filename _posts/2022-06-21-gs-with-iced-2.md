@@ -4,7 +4,7 @@ title: "GUI in Rust with iced #2: Composable Layout"
 tags: [rust, iced, iced-tutorial]
 ---
 
-This is the next issue of my series of tutorials for [iced](iced.rs) library.
+This is the next issue of my series of tutorials for [iced](https://iced.rs) library.
 Today we will learn how to do conditional rendering.
 
 
