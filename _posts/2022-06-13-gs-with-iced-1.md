@@ -336,7 +336,7 @@ I would advise you to have a look at iced [examples](https://github.com/iced-rs/
 
 *Next tutorial will probably be dedicated to conditional view rendering and nested Messages.*
 
-If you have some feedback, comments or questions, I would love to hear them. Please reach out to me on discord: SkymanOne#9623
+If you have some feedback, comments or questions, I would love to hear them. You can start a [discussion](https://github.com/SkymanOne/SkymanOne.github.io/discussions) on github or [email me](mailto:german.nikolishin@gmail.com). I am also active on the official [iced discord server](https://discord.gg/3xZJ65GAhd) where you can chat with many other contributors.
 
 [^1]: https://docs.microsoft.com/en-us/windows/win32/learnwin32/retained-mode-versus-immediate-mode
 [^2]: https://github.com/emilk/egui#why-immediate-mode

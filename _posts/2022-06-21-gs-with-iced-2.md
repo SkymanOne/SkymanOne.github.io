@@ -159,7 +159,7 @@ let col = Column::new().push(incr).push(label).push(decr).push(navigate);
 ```
 The button simply produces `CounterMessage::ChangePage` message with the specified values of `Views` enum.
 
-However, this is not it. Now, out application needs to know what view to show in the window.
+However, this is not it. Now, our application needs to know what view to show in the window.
 
 In iced, every layout component implements `Widget` trait which can be converted into `Element<Message>` object. Essentially, the whole navigation in iced apps come down to drawing different groups of elements which are grouped by Layout components such as `Column`, `Row` and `Container`. 
 
@@ -176,7 +176,7 @@ let main_page_layout  = MainPage::new().view();
 ```
 I took a shortcut there and also returned a layout of our page inlined, because that's what we interested in. If you are using rust-analyzer, you can see that it shows the type of our variable as `Element<CounterMessage, Renderer<...>>`
 
-Now let's simply return the relevant vies based on value of `current_view`:
+Now let's simply return the relevant views based on value of `current_view`:
 
 ``` rust 
 match self.current_view {
@@ -190,7 +190,7 @@ returns a value referencing data owned by the current function`
 
 This is because we try to instantiate our page struct and then return an element (from `.view()`) from its reference which will go out of scope as soon as we go through another *model-view-update* cycle. Hence, we need to own the data, we could replace `pub fn view(&self)` with `pub fn view(self)` in `main_page.rs`, but this would imply that `CounterMessage` must have `'static` lifetime which introduces unnecessary lifetime management.
 
-So, instead let out application struct own the data by storing the page in state of our application:
+So, instead, let our application struct own the data by storing the page in the state of our application:
 
 in `main.rs`
 
@@ -352,4 +352,4 @@ I decided it would be useful to leave some open problems for you to work on:
 * There is a little bit of spaghetti-code in `main.rs`. Our counter page is mixed with general state of the application. Try to fix it.
 
 
-If you have some feedback, comments or questions, I would love to hear them. Please reach out to me on discord: SkymanOne#9623
+If you have some feedback, comments or questions, I would love to hear them. You can start a [discussion](https://github.com/SkymanOne/SkymanOne.github.io/discussions) on github or [email me](mailto:german.nikolishin@gmail.com). I am also active on the official [iced discord server](https://discord.gg/3xZJ65GAhd) where you can chat with many other contributors.
