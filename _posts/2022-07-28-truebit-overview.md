@@ -235,4 +235,4 @@ Many thanks to [Timo Neumann](https://www.linkedin.com/in/timo-neumann-a0438b217
 
 ---
 
-If you have some feedback, comments or questions, I would love to hear them. You can start a discussion on github or email me. I am also active on the official iced discord server where you can chat with many other contributors.
+If you have some feedback, comments or questions, I would love to hear them. You can start a [discussion](https://github.com/SkymanOne/SkymanOne.github.io/discussions) on github or [email me](mailto:german.nikolishin@gmail.com).
