@@ -131,7 +131,7 @@ There can be edge cases where the callers publish a tasks without making the pro
 
 The reason why storing data on IPFS is not persistent is because the protocol does not provide any incentive for it. The founders look towards Filecoin as a potential solution, but it doesn’t work well with TrueBit as it would require complex economic and protocol interoperability. Both protocol have different native tokens and operate on different networks. This would require a bridge for intercommunication between chains. The potential solution is to implement TrueBit protocol as a parachain. This would allow Truebit to utilize interoperability with other chains that provide storage solutions without any bridging.
 
-My another proposal would be to add another layer, Storage Layer, which would incentivize participants in the network to store and propagate program’s data on IPFS, hence ensuring the persistency and availability of data for the duration of the execution of the program. Otherwise, if the company 
+My another proposal would be to add another layer, Storage Layer, which would incentivize participants in the network to store and propagate program’s data on IPFS, hence ensuring the persistency and availability of data for the duration of the execution of the program.
 
 Another potential room for improvement would the ecosystem, the app stack limits the scalability of the technology in a way that there are not enough resources for developers to build solutions. It doesn’t have a published the generic smart contract on Ethereum blockchain which would allow to easily call it form other contracts and supply tasks for computation.
 
