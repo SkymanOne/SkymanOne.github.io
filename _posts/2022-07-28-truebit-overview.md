@@ -11,8 +11,8 @@ This article summarises my personal findings why the Truebit did not make its wa
 ## Intro
 
 While this article will primarily focus on technical aspects of the protocol, this is never the only side of any blockchain project.
-I want to thank other people who I with on researching this protocol and did excellent job at looking at different aspects of it.
-I will include the list of everyone involved in this research at the end of the article with their contacts.
+I want to thank other people who I worked with on researching this protocol and did excellent job at looking into different aspects of it.
+I will include the full list of everyone involved in this research at the end of the article with their contacts.
 
 ### Protocol summary
 
