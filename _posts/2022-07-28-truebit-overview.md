@@ -6,7 +6,7 @@ tags: [blockchain, thoughts]
 
 I had a chance to come across the project that could potentially revolutionise the cloud computing.
 Unfortunately, sometimes great ideas do not always get to see the world at their full capacity.
-This article summarises my personal findings why the Truebit did not make it its way to blockchain world.
+This article summarises my personal findings why the Truebit did not make its way to blockchain world.
 
 ## Intro
 
