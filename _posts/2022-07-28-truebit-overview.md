@@ -214,7 +214,7 @@ We just need to keep trying.
 
 ## Extra - Proof of Computation
 
-***Take this section take it with a pinch of salt. These thoughts are our pure ideas that may or may not have any theoretical backup.***
+***Take this section with a pinch of salt. These thoughts are our pure ideas that may or may not have any theoretical backup.***
 
 The idea behind TrueBit can path the way for the new consensus mechanism: **Proof of Computation**. 
 
