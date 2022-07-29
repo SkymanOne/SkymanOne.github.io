@@ -60,7 +60,7 @@ If the challenger computed result is different from the submitted one, it submit
 
 Suppose there are `n` configurations in the solution (i.e. `n` states)
 
-Both the verifier and the challenger computes the configuration of individual computational steps with the state snapshots. The challenger the compares his state to the solver’s state. 
+Both the verifier and then challenger computes the configuration of individual computational steps with the state snapshots. The challenger the compares his state to the solver’s state. 
 
 These snapshots are represented as[ Merkle Tree](https://en.wikipedia.org/wiki/Merkle_tree) co-paths.
 
