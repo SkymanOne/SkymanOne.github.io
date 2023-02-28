@@ -28,3 +28,5 @@ Best place to contact me is either [telegram](https://t.me/SkymanOne) or Discord
 
 For professional reach, please use my personal email:
 [german.nikolishin@gmail.com](mailto:german.nikolishin@gmail.com)
+
+dotsama: [148FJo7Kfm8dzyJLFy5eaSP4i7eNMbS6caemDr99KZoV7gGV](https://sub.id/148FJo7Kfm8dzyJLFy5eaSP4i7eNMbS6caemDr99KZoV7gGV)
