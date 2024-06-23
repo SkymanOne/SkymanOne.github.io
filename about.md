@@ -4,20 +4,20 @@ title: About
 permalink: /about/
 ---
 
-Hey there. My name is German Nikolishin. I am a _second_ year Computer Science student at the University of Southampton.
-I like writing scalable code and experiment with different technologies.
+Hey there. My name is Gherman Nicolisin. I am a Computer Science graduate from the University of Southampton.
+My passion lies in blockcahin, zero-knowledge proofs, formal verification, and Rust.
 
 ### What I know:
+* Rust, Tokio
+* Substrate, ink!
 * C#, .NET Core, ASP.NET Core, Xamarin.Forms and Entity Framework Core
 * Python3, Django and Flask, asyncio
-* SQL, (a little bit of T-SQL)
 * bash, linux administration, git
 * Docker, Docker Compose
-* Basic CI/CD workflow (i.e. github actions)
 
 ### What I am learning:
-* Rust, [iced](https://iced.rs) GUI library, [tokio](https://tokio.rs)
-* [Substrate](https://substrate.io) - blockchain development framework
+* Circom
+* Fully-Homomorphic Encryption
 * Swift
 
 For more up-to-date updates on what I am doing, follow [my github](https://github.com/SkymanOne)
