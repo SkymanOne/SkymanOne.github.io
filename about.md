@@ -4,8 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Hey there. My name is Gherman Nicolisin. I am a Computer Science graduate from the University of Southampton.
-My passion lies in blockcahin, zero-knowledge proofs, formal verification, and Rust.
+Hey there. My name is Gherman Nicolisin. I am a Computer Science graduate from the University of Southampton,
+and a protocol engineer.
+My passion lies in blockchain, zero-knowledge proofs, formal verification, and Rust.
 
 ### What I know:
 * Rust, Tokio
@@ -24,7 +25,7 @@ For more up-to-date updates on what I am doing, follow [my github](https://githu
 
 ### Contact me
 
-Best place to contact me is either [telegram](https://t.me/SkymanOne) or Discord (SkymanOne#9623)
+Best place to contact me is either [telegram](https://t.me/SkymanOne) or Discord (skymanone)
 
 For professional reach, please use my personal email:
 [german.nikolishin@gmail.com](mailto:german.nikolishin@gmail.com)
