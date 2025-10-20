@@ -56,6 +56,7 @@
     "sanitize-html": "^2.17.0",
     "satori": "^0.18.2",
     "satori-html": "^0.3.2",
+    "sharp": "^0.34.4",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
     "unified": "^11.0.5",

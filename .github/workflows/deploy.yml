@@ -31,13 +31,11 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Install Playwright dependencies
-        run: |
-          pnpm add -D playwright
-          pnpm exec playwright install chromium --with-deps
-
       - name: Install dependencies
         run: pnpm install
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install chromium --with-deps
 
       - name: Build site
         run: pnpm run build
