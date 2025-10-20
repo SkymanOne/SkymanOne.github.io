@@ -22,6 +22,7 @@ import remarkMath from 'remark-math' /* for latex math support */
 import rehypeKatex from 'rehype-katex' /* again, for latex math support */
 import remarkGemoji from './src/plugins/remark-gemoji' /* for shortcode emoji support */
 import rehypePixelated from './src/plugins/rehype-pixelated' /* Custom plugin to handle pixelated images */
+import rehypeMermaid from 'rehype-mermaid' /* for mermaid diagram support */
 
 // https://astro.build/config
 export default defineConfig({
@@ -53,6 +54,7 @@ export default defineConfig({
       ],
       rehypeUnwrapImages,
       rehypePixelated,
+      rehypeMermaid,
       rehypeKatex,
     ],
   },

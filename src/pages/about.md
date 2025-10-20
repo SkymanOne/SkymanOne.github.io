@@ -3,4 +3,27 @@ layout: '~/layouts/MarkdownLayout.astro'
 title: About Me
 ---
 
-The laughing kookaburra (Dacelo novaeguineae) is a bird in the kingfisher subfamily Halcyoninae. It is a large robust kingfisher with a whitish head and a brown eye-stripe. The upperparts are mostly dark brown but there is a mottled light-blue patch on the wing coverts. The underparts are cream-white and the tail is barred with rufous and black. The plumage of the male and female birds is similar. The territorial call is a distinctive laugh that is often delivered by several birds at the same time, and is widely used as a stock sound effect in situations that involve a jungle setting.
+Hey there. My name is Gherman Nicolisin.
+My passion lies in blockchain, zero-knowledge proofs, formal verification, and Rust.
+
+### What I know:
+* Rust, Tokio, Macros
+* Substrate, ink!
+* A bit of C#, .NET Core, ASP.NET Core, Entity Framework Core
+* Python3, Django and Flask, asyncio
+
+### What I am learning:
+* ZK, FHE and other advanced cryptography
+* Financial markets
+
+For more up-to-date updates on what I am doing, follow [my github](https://github.com/SkymanOne)
+
+### Contact me
+
+Best place to contact me is either [telegram](https://t.me/SkymanOne) or Discord (skymanone)
+
+For professional reach, please use my personal email:
+[german.nikolishin@gmail.com](mailto:german.nikolishin@gmail.com)
+
+- dotsama: [148FJo7Kfm8dzyJLFy5eaSP4i7eNMbS6caemDr99KZoV7gGV](https://sub.id/148FJo7Kfm8dzyJLFy5eaSP4i7eNMbS6caemDr99KZoV7gGV)
+- eth: [skymanone.eth](https://app.ens.domains/skymanone.eth)

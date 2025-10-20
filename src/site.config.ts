@@ -2,7 +2,7 @@ import type { SiteConfig } from '~/types'
 
 const config: SiteConfig = {
   // Absolute URL to the root of your published site, used for generating links and sitemaps.
-  site: 'https://multiterm.stelclementine.com',
+  site: 'https://nikolish.in',
   // The name of your site, used in the title and for SEO.
   title: 'Gherman Nicolisin',
   // The description of your site, used for SEO and RSS feed.
@@ -17,7 +17,7 @@ const config: SiteConfig = {
   socialCardAvatarImage: './src/content/avatar.png',
   // Font imported from @fontsource or elsewhere, used for the entire site.
   // To change this see src/styles/global.css and import a different font.
-  font: 'Inter Variable',
+  font: 'Inconsolata Variable',
   // For pagination, the number of posts to display per page.
   // The homepage will display half this number in the "Latest Posts" section.
   pageSize: 6,
@@ -39,11 +39,11 @@ const config: SiteConfig = {
       name: 'Archive',
       url: '/posts',
     },
-    // {
-    //   name: 'GitHub',
-    //   url: 'https://github.com/stelcodes/multiterm-astro',
-    //   external: true,
-    // },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/SkymanOne',
+      external: true,
+    },
   ],
   // The theming configuration for the site.
   themes: {
@@ -57,92 +57,19 @@ const config: SiteConfig = {
     // These will be used to theme the entire site along with syntax highlighting.
     // To use light-dark-auto mode, only include a light and a dark theme in that order.
     include: ['solarized-light', 'vesper'],
-    // include: [
-    //   'andromeeda',
-    //   'aurora-x',
-    //   'ayu-dark',
-    //   'catppuccin-frappe',
-    //   'catppuccin-latte',
-    //   'catppuccin-macchiato',
-    //   'catppuccin-mocha',
-    //   'dark-plus',
-    //   'dracula',
-    //   'dracula-soft',
-    //   'everforest-dark',
-    //   'everforest-light',
-    //   'github-dark',
-    //   'github-dark-default',
-    //   'github-dark-dimmed',
-    //   'github-dark-high-contrast',
-    //   'github-light',
-    //   'github-light-default',
-    //   'github-light-high-contrast',
-    //   'gruvbox-dark-hard',
-    //   'gruvbox-dark-medium',
-    //   'gruvbox-dark-soft',
-    //   'gruvbox-light-hard',
-    //   'gruvbox-light-medium',
-    //   'gruvbox-light-soft',
-    //   'houston',
-    //   'kanagawa-dragon',
-    //   'kanagawa-lotus',
-    //   'kanagawa-wave',
-    //   'laserwave',
-    //   'light-plus',
-    //   'material-theme',
-    //   'material-theme-darker',
-    //   'material-theme-lighter',
-    //   'material-theme-ocean',
-    //   'material-theme-palenight',
-    //   'min-dark',
-    //   'min-light',
-    //   'monokai',
-    //   'night-owl',
-    //   'nord',
-    //   'one-dark-pro',
-    //   'one-light',
-    //   'plastic',
-    //   'poimandres',
-    //   'red',
-    //   'rose-pine',
-    //   'rose-pine-dawn',
-    //   'rose-pine-moon',
-    //   'slack-dark',
-    //   'slack-ochin',
-    //   'snazzy-light',
-    //   'solarized-dark',
-    //   'solarized-light',
-    //   'synthwave-84',
-    //   'tokyo-night',
-    //   'vesper',
-    //   'vitesse-black',
-    //   'vitesse-dark',
-    //   'vitesse-light',
-    // ],
     // Optional overrides for specific themes to customize colors.
     // Their values can be either a literal color (hex, rgb, hsl) or another theme key.
     // See themeKeys list in src/types.ts for available keys to override and reference.
     overrides: {
-      // Improve readability for aurora-x theme
-      // 'aurora-x': {
-      //   background: '#292929FF',
-      //   foreground: '#DDDDDDFF',
-      //   warning: '#FF7876FF',
-      //   important: '#FF98FFFF',
-      //   note: '#83AEFFFF',
-      // },
-      // Make the GitHub dark theme a little cuter
-      // 'github-light': {
-      //   accent: 'magenta',
-      //   heading1: 'magenta',
-      //   heading2: 'magenta',
-      //   heading3: 'magenta',
-      //   heading4: 'magenta',
-      //   heading5: 'magenta',
-      //   heading6: 'magenta',
-      //   separator: 'magenta',
-      //   link: 'list',
-      // },
+      'solarized-light': {
+        accent: '#4d3316',
+        heading1: '#4d3316',
+        heading2: '#4d3316',
+        heading3: '#4d3316',
+        heading4: '#4d3316',
+        heading5: '#4d3316',
+        heading6: '#4d3316',
+      },
     },
   },
   // Social links to display in the footer.
