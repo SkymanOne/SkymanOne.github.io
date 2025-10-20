@@ -2,7 +2,7 @@
 title: 'GUI in Rust with iced #2: Composable Layout'
 published: 2022-06-21
 draft: false
-description: 'Learn how to use develop light-weight GUId with `iced`'
+description: 'Learn the basics on conditional rendering in iced'
 series: 'Iced Basics'
 tags: ['rust', 'iced']
 ---

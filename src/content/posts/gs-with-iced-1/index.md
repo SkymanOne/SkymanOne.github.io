@@ -2,7 +2,7 @@
 title: 'GUI in Rust with iced #1: Getting Started'
 published: 2022-06-13
 draft: false
-description: 'Learn how to use develop light-weight GUId with `iced`'
+description: 'Learn how to develop light-weight GUIs in Rust'
 series: 'Iced Basics'
 tags: ['rust', 'iced']
 ---
