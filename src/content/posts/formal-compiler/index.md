@@ -86,7 +86,7 @@ on executing the program using symbolic values instead of concrete values [^eth_
 [KEVM](https://jellopaper.org/index.html) is a tool that provides executable semantics of EVM using _K_ framework.
 It uses reachability logic to reason symbolically about the system.
 Specifically, SC developers are required to write a specification in a separate file that is checked against the SC's compiled EVM bytecode.
-Whilst this provides more fine-grained assurance of the safety and correctness, it requires specialised knowledge of the $KK$ framework and EVM
+Whilst this provides more fine-grained assurance of the safety and correctness, it requires specialised knowledge of the $K$ framework and EVM
 semantics, hence significantly increasing the development time.
 
 The other interesting tool is [Dafny](https://dafny.org/latest/DafnyRef/DafnyRef). Dafny is a general-purpose tool that checks inputs in any language

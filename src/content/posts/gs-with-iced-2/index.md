@@ -12,7 +12,7 @@ Today we will learn how to do conditional rendering.
 
 ## Recap
 
-In case you missed, in [previous tutorial]({% post_url 2022-06-13-gs-with-iced-1 %}) we covered the basics of Elm architecture, difference between retained and immediate modes and created the counter app. I strongly recommend you to complete the previous tutorial before starting if you haven't had experience with iced before.
+In case you missed, in the previous tutorial we covered the basics of Elm architecture, difference between retained and immediate modes and created the counter app. I strongly recommend you to complete the previous tutorial before starting if you haven't had experience with iced before.
 
 ## Conditional Rendering: Theory
 
@@ -21,7 +21,7 @@ Take a blog system as a example. We would show `Edit post` button, only when the
 
 ## Practical
 
-Let's reuse the code of our counter app from [previous tutorial]({% post_url 2022-06-13-gs-with-iced-1 %}) and add another page which will be shown upon the click on the button "Next page".
+Let's reuse the code of our counter app from the previous tutorial and add another page which will be shown upon the click on the button "Next page".
 
 In `src` directory create another file called `main_page.rs` and let's define an empty structure to represent our page:
 

@@ -62,6 +62,7 @@ const config: SiteConfig = {
     // See themeKeys list in src/types.ts for available keys to override and reference.
     overrides: {
       'solarized-light': {
+        foreground: '#55524fff',
         accent: '#4d3316',
         heading1: '#4d3316',
         heading2: '#4d3316',
@@ -74,12 +75,10 @@ const config: SiteConfig = {
   },
   // Social links to display in the footer.
   socialLinks: {
-    github: 'https://github.com/stelcodes/multiterm-astro',
-    mastodon: 'https://github.com/stelcodes/multiterm-astro',
-    email: 'https://github.com/stelcodes/multiterm-astro',
-    linkedin: 'https://github.com/stelcodes/multiterm-astro',
-    bluesky: 'https://github.com/stelcodes/multiterm-astro',
-    twitter: 'https://github.com/stelcodes/multiterm-astro',
+    github: 'https://github.com/SkymanOne',
+    email: 'mailto:german.nikolishin@gmail.com',
+    linkedin: 'https://linkedin.com/in/skymanone',
+    twitter: 'https://x.com/skyman_one',
     rss: true, // Set to true to include an RSS feed link in the footer
   },
   // Configuration for Giscus comments.

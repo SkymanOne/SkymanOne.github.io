@@ -1,4 +1,4 @@
-# Personal blog 
+# Personal blog
 
 This is a personal blog based on https://github.com/stelcodes/multiterm-astro. All thoughts are mine though.
 

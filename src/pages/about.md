@@ -7,14 +7,16 @@ Hey there. My name is Gherman Nicolisin.
 My passion lies in blockchain, zero-knowledge proofs, formal verification, and Rust.
 
 ### What I know:
-* Rust, Tokio, Macros
-* Substrate, ink!
-* A bit of C#, .NET Core, ASP.NET Core, Entity Framework Core
-* Python3, Django and Flask, asyncio
+
+- Rust, Tokio, Macros
+- Substrate, ink!
+- A bit of C#, .NET Core, ASP.NET Core, Entity Framework Core
+- Python3, Django and Flask, asyncio
 
 ### What I am learning:
-* ZK, FHE and other advanced cryptography
-* Financial markets
+
+- ZK, FHE and other advanced cryptography
+- Financial markets
 
 For more up-to-date updates on what I am doing, follow [my github](https://github.com/SkymanOne)
 

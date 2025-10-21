@@ -29,6 +29,13 @@ export default defineConfig({
   site: siteConfig.site,
   trailingSlash: siteConfig.trailingSlashes ? 'always' : 'never',
   prefetch: true,
+  // redirects from the old website
+  redirects: {
+    '/gs-with-iced-2': {
+      status: 301,
+      destination: '/posts/gs-with-iced-2',
+    },
+  },
   markdown: {
     remarkPlugins: [
       [remarkDescription, { maxChars: 200 }],
@@ -70,8 +77,8 @@ export default defineConfig({
       themes: siteConfig.themes.include,
       useDarkModeMediaQuery: false,
       defaultProps: {
-        showLineNumbers: false,
-        wrap: false,
+        showLineNumbers: true,
+        wrap: true,
       },
       plugins: [pluginLineNumbers()],
     }), // Must come after expressive-code integration
