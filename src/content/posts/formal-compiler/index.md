@@ -194,7 +194,7 @@ $$
 Then, for some statement $$S$$: `assets = assets :> add(<a>, <b>)`, we can treat as a hypothesis. The compiler can then assert:
 
 $$
-S, (a', a \in Address) \vdash Assets(a) \neq Assets(a')
+S, \; \forall a, a' \in Address, \; a \neq a' \vdash Assets(a) \neq Assets(a')
 $$
 
 Looking at the expressions, Folidity provides a standard set of operators to describe mathematical and boolean expressions (e.g. `+`, `/`, `||`, etc.)
@@ -248,7 +248,7 @@ model MyModel {
 ]
 ```
 
-Folidity enables developers to further constrain the data that the model can accept by specifying model bounds in `st` #footnote("States for \"such that\"") blocks. This syntax can also be used in state and function declarations as illustrated later.
+Folidity enables developers to further constrain the data that the model can accept by specifying model bounds in `st` (short for "such that") blocks. This syntax can also be used in state and function declarations as illustrated later.
 To support context transformation, any global state variables (e.g. block number, current caller) are injected into a model as fields and can be accessed in `st` blocks and expressions in functions.
 Furthermore, Folidity borrows the idea of model refinements from Event-B by allowing a model to inherit another model's fields and refine its constraints.
 
@@ -296,7 +296,7 @@ state StateA from (StateB s) st [
 ]
 ```
 
-As mentioned earlier, functions facilitate the model mutation of the Folidiy SC. Functions provide a controlled interface for the user and other contracts to interact with the state of the application. Therefore, it is important to enable developers to control the execution flow of the incoming data and provide them with fine-grained control over output data and storage mutation.
+As mentioned earlier, functions facilitate the model mutation of the Folidity SC. Functions provide a controlled interface for the user and other contracts to interact with the state of the application. Therefore, it is important to enable developers to control the execution flow of the incoming data and provide them with fine-grained control over output data and storage mutation.
 
 Let's look at the signature of a typical function in Folidity;
 
@@ -354,11 +354,11 @@ $$
 A \subseteq M \subseteq *
 $$
 
-Subsequently, given some event for the system `add_mod(a: Address)`, we can define the following invariants for the system:
+Subsequently, given some event for the system `add_admin(a: Address)`, we can define the following invariants for the system:
 
 $$
 i_0 := card(A) = 1 \\\\
-i_2 := card(B) = 5
+i_1 := card(M) = 5
 $$
 
 And the invariant for the event:
@@ -378,22 +378,24 @@ Where
 For the denoted event, suppose we mutate the model by adding an address to a set of admins:
 
 $$
-A: A \cup \{ a \}
+A' = A \cup \{ a \}
 $$
 
-Then, we can verify the model consistency for some state transition from an initial state $$S$$ to a new state $$S'$$, $$S \rightarrow S'$$, using propositional logic.
+Then, we can verify the model consistency for some state transition from an initial state $$S$$ to a new state $$S'$$, $$S \rightarrow S'$$, using first-order logic and set theory.
 
 $$
- \frac{(i_0 \land i_1 \land i_2) \rightarrow A \cup \{ a \}, a \in *, c \in A}{A \cup \{ a \}}
+\frac{i_0 \land i_1 \land i_2, \; a \in *, \; a \notin A, \; c \in A, \; A' = A \cup \{ a \}}{card(A') = card(A) + 1}
 $$
 
-However, as it can be seen, one of the premises violates the invariant, in particular:
+However, as can be seen, combining these premises with invariant $$i_0$$ reveals that the operation would violate the invariant. Specifically:
 
 $$
-\frac{card(A) = 1 \rightarrow A \cup \{ a \}, a \in *}{A \cup \{ a \} }
+\frac{i_0: card(A) = 1, \; a \in *, \; a \notin A, \; A' = A \cup \{ a \}}{card(A') = 2 \land card(A') \neq 1 \; \therefore \bot}
 $$
 
-In practice, the following error can be picked at the compile time by using symbolic execution of the code.
+Where $$\bot$$ denotes a logical contradiction, indicating that the invariant $$i_0$$ (requiring $$card(A') = 1$$) cannot be maintained after the operation.
+
+In practice, this contradiction can be detected at compile time by using symbolic execution of the code.
 The other invariant, $$ i_2 $$, can be picked at the runtime by generating an appropriate assertion.
 
 ### Proving constraint satisfiability
@@ -432,8 +434,7 @@ We can generalise the approach using the following mathematical model.
 Let's describe some verification system **_VS_** as
 
 $$
-\
-\mathbf{\mathit{VS}} = \langle \mathbf{M}, \mathbf{E}, \mathbf{\Upsilon}, \Theta, T_{M}, T_{(E, \{E, M\})}, T_{(\Upsilon, E)} \rangle
+\mathbf{\mathit{VS}} = \langle \mathbf{M}, \mathbf{E}, \mathbf{\Upsilon}, \Theta, T_{\mathbf{M}}, T_{(\mathbf{E}, \{\mathbf{E}, \mathbf{M}\})}, T_{(\mathbf{\Upsilon}, \mathbf{E})} \rangle
 $$
 
 where
@@ -442,11 +443,11 @@ where
 - $$\mathbf{E}$$ - set of states in the system.
 - $$\mathbf{\Upsilon}$$ - set of functions in the system.
 - $$\Theta$$ - set of constraint blocks in the system, where $$\Theta[\mathbf{M}]$$ corresponds to the set of constraints for models, $$\Theta[\mathbf{E}]$$ - state constraints, and $$\Theta[\mathbf{\Upsilon}]$$ function constraints.
-- $$T_{M}$$ - a relation $$T: \mathbf{M} \rightharpoonup \mathbf{M}$$ describing a model inheritance.
-- $$T_{(E, \{E, M\})}$$ - a relation $$T: \mathbf{E} \rightharpoonup \{\mathbf{E}, \mathbf{M}\}$$ describing any state transition bounds and encapsulated models in states, meaning that a state S' can only transition from the specified state $$S$$, and a state $$S$$ can encapsulate a model $$M$$.
-- $$T_{(\Upsilon, E)}$$ - a relation $$T: \mathbf{\Upsilon} \rightharpoonup \mathbf{E}$$ describing any state transition bounds for states $$\mathbf{E}$$ in functions $$\mathbf{\Upsilon}$$.
+- $$T_{\mathbf{M}}$$ - a relation $$T: \mathbf{M} \rightharpoonup \mathbf{M}$$ describing a model inheritance.
+- $$T_{(\mathbf{E}, \{\mathbf{E}, \mathbf{M}\})}$$ - a relation $$T: \mathbf{E} \rightharpoonup \{\mathbf{E}, \mathbf{M}\}$$ describing any state transition bounds and encapsulated models in states, meaning that a state S' can only transition from the specified state $$S$$, and a state $$S$$ can encapsulate a model $$M$$.
+- $$T_{(\mathbf{\Upsilon}, \mathbf{E})}$$ - a relation $$T: \mathbf{\Upsilon} \rightharpoonup \mathbf{E}$$ describing any state transition bounds for states $$\mathbf{E}$$ in functions $$\mathbf{\Upsilon}$$.
 
-In particular, $$\forall \mu \in \mathbf{M} \; \exists \theta \in \Theta[\mu] where \theta$$ is a set of constraints for $$\mu$$, and corresponding logic can be applied for elements of $$E$$ and $$\Upsilon$$.
+In particular, $$\forall \mu \in \mathbf{M} \; \exists \theta \in \Theta[\mu] where \theta$$ is a set of constraints for $$\mu$$, and corresponding logic can be applied for elements of $$\mathbf{E}$$ and $$\mathbf{\Upsilon}$$.
 
 To verify the consistency of the system, we first need to verify the following satisfiability, $$\textit{Sat}$$:
 
@@ -470,9 +471,9 @@ $$
 This allows us to validate the next property of $$\mathbf{\mathit{VS}}$$:
 
 $$
-A = \{ \mathbf{M} \cup \mathbf{E} \cup \Upsilon \} \\\\
-A = \{ e_0, e_1, \dots, e_k \} \\\\
-\left(\bigwedge_{i} \rho(\Theta[e_i]) \right) \Rightarrow \mathit{Sat \; or \; Unsat}
+\mathcal{D} = \mathbf{M} \cup \mathbf{E} \cup \mathbf{\Upsilon} \\\\
+\mathcal{D} = \{ d_0, d_1, \dots, d_k \} \\\\
+\left(\bigwedge_{i} \rho(\Theta[d_i]) \right) \Rightarrow \mathit{Sat \; or \; Unsat}
 $$
 
 The next stage is to verify co-dependent symbols in the system for the satisfiability of their respective constraints.
@@ -480,30 +481,30 @@ The next stage is to verify co-dependent symbols in the system for the satisfiab
 Looking at the models $$\mathbf{M}$$, we want to ensure that
 
 $$
-\text{if for some } m \in M, m' \in M \\\\
-\exists (m, m') \in T_{M} \\\\
+\text{if for some } m \in \mathbf{M}, m' \in \mathbf{M} \\\\
+\exists (m, m') \in T_{\mathbf{M}} \\\\
 \text{s.t. } \rho(m) \times \rho(m') = (\mathit{Sat}, \mathit{Sat}) \\\\
 \text{and } \theta = \Theta[m] \cup \Theta[m'] \\\\
 \rho(\theta) \Rightarrow \mathit{Sat}
 $$
 
-A similar verification can be applied to $$T_{(\Upsilon, E)}$$.
+A similar verification can be applied to $$T_{(\mathbf{\Upsilon}, \mathbf{E})}$$.
 
-For $$T_{(E, \{E, M\})}$$, the constraints can be extracted as follows:
+For $$T_{(\mathbf{E}, \{\mathbf{E}, \mathbf{M}\})}$$, the constraints can be extracted as follows:
 
 $$
-\text{if for some } \epsilon \in E, \epsilon' \in E \\\\
-\exists (\epsilon, \epsilon') \in T_{(E, \{E, M\})} \\\\
-\text{s.t. } \rho(\epsilon) \times \rho(\epsilon') \times \rho(\mu) = (\mathit{Sat}, \mathit{Sat}) \\\\
-\text{and } \theta = \Theta[\epsilon] \cup \Theta[\epsilon'] \\\\
+\text{if for some } \epsilon \in \mathbf{E}, \epsilon' \in \mathbf{E}, \mu \in \mathbf{M} \\\\
+\exists (\epsilon, \epsilon') \in T_{(\mathbf{E}, \{\mathbf{E}, \mathbf{M}\})} \text{ and } (\epsilon, \mu) \in T_{(\mathbf{E}, \{\mathbf{E}, \mathbf{M}\})} \\\\
+\text{s.t. } \rho(\epsilon) \times \rho(\epsilon') \times \rho(\mu) = (\mathit{Sat}, \mathit{Sat}, \mathit{Sat}) \\\\
+\text{and } \theta = \Theta[\epsilon] \cup \Theta[\epsilon'] \cup \Theta[\mu] \\\\
 \rho(\theta) \Rightarrow \mathit{Sat}
 $$
 
 Similarly,
 
 $$
-\text{if for some } \epsilon \in E, \mu \in M \\\\
-\exists (\epsilon, \mu) \in T_{(E, \{E, M\})} \\\\
+\text{if for some } \epsilon \in \mathbf{E}, \mu \in \mathbf{M} \\\\
+\exists (\epsilon, \mu) \in T_{(\mathbf{E}, \{\mathbf{E}, \mathbf{M}\})} \\\\
 \text{s.t. } \rho(\epsilon) \times \rho(\mu) = (\mathit{Sat}, \mathit{Sat}) \\\\
 \text{and } \theta = \Theta[\epsilon] \cup \Theta[\mu] \\\\
 \rho(\theta) \Rightarrow \mathit{Sat}
@@ -533,7 +534,7 @@ On the contrary, although Algorand has a limited execution stack, it offers fixe
 Additionally, Algorand execution context explicitly operates in terms of state transition, which perfectly suits the paradigm of Folidity.
 Finally, Algorand offers opt-in functionality and local wallet storage, allowing users to explicitly opt-in to use the SC.
 
-The Folidity compiler emits [Algoran AVM Teal](https://developer.algorand.org/docs/get-details/dapps/avm/teal/) bytecode. The bytecode has a close resembles to "baby" Assembler. It has primitive register notion called "scratch space", a wide variety opcodes for stack manipulation and other useful features.
+The Folidity compiler emits [Algorand AVM Teal](https://developer.algorand.org/docs/get-details/dapps/avm/teal/) bytecode. The bytecode has a close resembles to "baby" Assembler. It has primitive register notion called "scratch space", a wide variety opcodes for stack manipulation and other useful features.
 
 ```mermaid
 flowchart TD
@@ -728,7 +729,7 @@ Primitive types are pushed onto the stack using the standard set of opcodes, whi
 Floating point numbers are encoded using the IEEE 754 standard.
 Variables are resolved by accessing concrete chunks and prepending them to the current piece of a stack.
 
-Enums are resolved by encoding them into a byte array of 2 uint64 integers where the first value indicates the index of the enum in the contract definition, and the other one corresponds to the variant's position. Binay operations (e.g. summation, subtraction) are emitted by pushing left and right values onto the stack before pushing the operation opcode.
+Enums are resolved by encoding them into a byte array of 2 uint64 integers where the first value indicates the index of the enum in the contract definition, and the other one corresponds to the variant's position. Binary operations (e.g. summation, subtraction) are emitted by pushing left and right values onto the stack before pushing the operation opcode.
 
 Moving to the complex operations, function calls are emitted similarly to the top-level call by pushing arguments onto the stack before the subroutine call. The most complex part is the handling of the storage-based operations. Currently, Folidity offers limited support for dynamically sized types (e.g. lists, strings, etc.). They are assumed to have a fixed capacity that is 512 bytes. Therefore, all types have a known size at the compile time. This is heavily used when encoding structures as a byte array that gets pushed to the storage. An example of the binary layout for the struct listed below demonstrates how any data structures can be encoded.
 
