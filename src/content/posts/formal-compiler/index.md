@@ -583,7 +583,7 @@ Z3 also offers tactics and optimisation techniques which currently beyond the sc
 
 Folidity compiler assumes a global proving context in the scope of the whole SC code, that is, also symbols and formulas are defined within the single proving context.
 
-To prove the functional correctness of the program, we essentially need to translate Folidity Expression into Z3 [AST types]("https://docs.rs/z3/0.12.1/z3/ast/index.html").
+To prove the functional correctness of the program, we essentially need to translate Folidity Expression into Z3 [AST types](https://docs.rs/z3/0.12.1/z3/ast/index.html).
 As shown in the proof section, we want to collect the list of constraints for each declaration and prove their consistency independently of each other. However, we also want to build a graph of relationships between declarations to prove that the combination of their constraints is satisfiable as well.
 
 ```rust
